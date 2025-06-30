@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,10 +40,31 @@ public class ProductController {
 
 		return productService.showAllProduct();
 	}
-	/*
-	 * @GetMapping("/updateProduct") public ProductRespDto updatePage(@RequestParam
-	 * int id) { ProductRespDto productRespDto = productService.updateproduct(id);
-	 * return productRespDto; }
-	 */
+
+	@GetMapping("/fetchData/{id}")
+	public ResponseEntity<?> fetchDataPage(@PathVariable int id) {
+	    ProductRespDto productRespDto = productService.fetchproduct(id);
+	    if (productRespDto == null) {
+	        return ResponseEntity.status(404).body("Product with ID " + id + " not found.");
+	    }
+	    return ResponseEntity.ok(productRespDto);
+	}
+	
+	
+	@PostMapping("/updateProduct")
+	public String updateProduct(@RequestBody ProductReqDto reqDto) {
+
+		String isUpdate = productService.updateProduct(reqDto);
+		return isUpdate;
+	}
+	
+	@GetMapping("/deleteData/{id}")
+	public ResponseEntity<?> deleteDataPage(@PathVariable int id) {
+	    ProductRespDto productRespDto = productService.deleteproduct(id);
+	    if (productRespDto == null) {
+	        return ResponseEntity.status(404).body("Product with ID " + id + " not found.");
+	    }
+	    return ResponseEntity.ok(productRespDto);
+	}
 
 }

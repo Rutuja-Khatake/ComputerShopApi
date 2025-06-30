@@ -40,18 +40,42 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
+	@Override
 
-	/*
-	 * @Override
-	 * 
-	 * public ProductRespDto updateproduct(int id) { Optional<Product>
-	 * optionalProduct = productRepo.findById(id);
-	 * 
-	 * if (optionalProduct.isPresent()) { Product product = optionalProduct.get();
-	 * ProductRespDto dto = productMapper.toDto2(product); return dto; }
-	 * 
-	 * return null; }
-	 */
+	public ProductRespDto fetchproduct(int id) {
+		Optional<Product> optionalProduct = productRepo.findById(id);
 
+		if (optionalProduct.isPresent()) {
+			Product product = optionalProduct.get();
+			ProductRespDto dto = productMapper.toDto2(product);
+			return dto;
+		}
+
+		return null;
+	}
+
+//	@Override
+//	public String updateProduct(ProductReqDto reqDto) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	@Override
+	public String updateProduct(ProductReqDto reqDto) {
+		Product product = productMapper.toEntity(reqDto);
+		Product productUpdate = productRepo.save(product);
+
+		return null;
+	}
+
+	@Override
+	public ProductRespDto deleteproduct(int id) {
+		productRepo.deleteById(id);
+
+		return null;
+	}
 	
+	
+
+
 }

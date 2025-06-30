@@ -14,8 +14,12 @@ public interface ProductService {
 	String addproduct(ProductReqDto reqDto);
 
 	List<ProductRespDto> showAllProduct();
-	/*
-	 * ProductRespDto updateproduct(int id);
-	 */
+	
+
+	ProductRespDto fetchproduct(int id);
+
+	String updateProduct(ProductReqDto reqDto);
+
+	ProductRespDto deleteproduct(int id);
 	
 }
