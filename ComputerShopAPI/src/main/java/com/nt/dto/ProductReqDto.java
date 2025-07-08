@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductReqDto {
-	private int id;
-	private String product_Name;
+	private int productId;
+	private String productName;
 	private String category;
 	private String brand;
 	private Float purchase_rate;
