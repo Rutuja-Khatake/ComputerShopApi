@@ -31,11 +31,16 @@ public class VendorServiceImpl implements VendorService {
 		return null;
 	}
 
+//	@Override
+//	public List getAll() {
+//		List<Vendor> list = vendorRepo.findAll();
+//
+//		return vendorMapper.toDto(list);
+//	}
 	@Override
-	public List getAll() {
-		List<Vendor> list = vendorRepo.findAll();
-
-		return vendorMapper.toDto(list);
+	public List<VendorRespDto> getAll() {
+	    List<Vendor> list = vendorRepo.findAll();
+	    return vendorMapper.toDto(list);
 	}
 
 	@Override

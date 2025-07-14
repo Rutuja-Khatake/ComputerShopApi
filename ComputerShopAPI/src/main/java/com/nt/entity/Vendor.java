@@ -15,7 +15,7 @@ public class Vendor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer vendorId;
 
 	@NotBlank(message = "Vendor name is required")
 	@Column(name = "vendorName", nullable = false)
@@ -32,12 +32,12 @@ public class Vendor {
 
 	// --- Getters and Setters ---
 
-	public Integer getId() {
-		return id;
+	public Integer getvendorId() {
+		return vendorId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer vendorId) {
+		this.vendorId = vendorId;
 	}
 
 	public String getVendorName() {
@@ -64,12 +64,12 @@ public class Vendor {
 		this.address = address;
 	}
 
-	public Vendor(Integer id, @NotBlank(message = "Vendor name is required") String vendorName,
+	public Vendor(Integer vendorId, @NotBlank(message = "Vendor name is required") String vendorName,
 
 			@NotBlank(message = "Mobile number is required") @Pattern(regexp = "^[0-9]{10}$", message = "Mobile number must be exactly 10 digits") String mobileNumber,
 			@NotBlank(message = "Address is required") String address) {
 		super();
-		this.id = id;
+		this.vendorId = vendorId;
 		this.vendorName = vendorName;
 		
 		this.mobileNumber = mobileNumber;

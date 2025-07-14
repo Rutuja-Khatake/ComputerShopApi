@@ -9,15 +9,14 @@ import org.springframework.stereotype.Repository;
 import com.nt.dto.ProductReqDto;
 import com.nt.dto.ProductRespDto;
 import com.nt.entity.Product;
-import com.nt.entity.PurchaseProduct;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Integer> {
-	List<Product> findAll();
-
-	ProductReqDto save(int id);
-
-	void save(PurchaseProduct prod);
+//	List<Product> findAll();
+//
+//	ProductReqDto save(int id);
+//
+//	void save(PurchaseProduct prod);
 
 	
 

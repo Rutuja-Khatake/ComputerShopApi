@@ -28,10 +28,21 @@ public class VendorController {
 		return added;
 	}
 	
+//	@GetMapping("/getAllvendors")
+//	public List<VendorRespDto> getAllVendors() {
+//		return vendorService.getAll();
+//	}
 	@GetMapping("/getAllvendors")
-	public List getAllVendors() {
-		return vendorService.getAll();
+	public ResponseEntity<List<VendorRespDto>> getAllVendors() {
+	    try {
+	        List<VendorRespDto> list = vendorService.getAll();
+	        return ResponseEntity.ok(list);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return ResponseEntity.internalServerError().build();
+	    }
 	}
+
 	
 	
 

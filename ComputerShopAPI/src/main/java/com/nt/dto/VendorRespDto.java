@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class VendorRespDto {
 
-	private int id;
+	private int vendorId;
 	private String vendorName;
 	private String mobileNumber;
 	private String address;

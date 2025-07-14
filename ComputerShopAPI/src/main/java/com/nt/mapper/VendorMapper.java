@@ -15,20 +15,20 @@ import com.nt.entity.Vendor;
 public class VendorMapper {
 
 	public Vendor toEntity(VendorReqDto dto) {
-		return new Vendor(dto.getId(),dto.getVendorName(),dto.getMobileNumber(),dto.getAddress());
+		return new Vendor(dto.getVendorId(), dto.getVendorName(), dto.getMobileNumber(), dto.getAddress());
 	}
 
-	public List toDto(List<Vendor> list) {
-		// TODO Auto-generated method stub
+	public List<VendorRespDto> toDto(List<Vendor> list) {
+		
 		List<VendorRespDto> dtoList = new ArrayList<>();
 
 		for (Vendor vendor : list) {
 			VendorRespDto dto = new VendorRespDto();
-			dto.setId(vendor.getId());
+			dto.setVendorId(vendor.getvendorId());
 			dto.setVendorName(vendor.getVendorName());
 			dto.setMobileNumber(vendor.getMobileNumber());
 			dto.setAddress(vendor.getAddress());
-			
+
 			dtoList.add(dto);
 		}
 
@@ -37,6 +37,7 @@ public class VendorMapper {
 	}
 
 	public VendorRespDto toDto2(Vendor vendor) {
-		return new VendorRespDto(vendor.getId(),vendor.getVendorName(),vendor.getMobileNumber(),vendor.getAddress());
+		return new VendorRespDto(vendor.getvendorId(), vendor.getVendorName(), vendor.getMobileNumber(),
+				vendor.getAddress());
 	}
 }
