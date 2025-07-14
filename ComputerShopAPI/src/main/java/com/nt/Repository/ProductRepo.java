@@ -12,9 +12,11 @@ import com.nt.entity.Product;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Integer> {
-	List<Product> findAll();
-
-	ProductReqDto save(int id);
+//	List<Product> findAll();
+//
+//	ProductReqDto save(int id);
+//
+//	void save(PurchaseProduct prod);
 
 	
 

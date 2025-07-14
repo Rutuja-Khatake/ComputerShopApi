@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private String product_Name;
+	private int productId;
+	private String productName;
 	private String category;
 	private String brand;
 	private Float purchase_rate;
@@ -22,26 +22,26 @@ public class Product {
 
 	
 	
-	public int getId() {
-		return id;
+	public int getproductId() {
+		return productId;
 	}
 
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setproductId(int productId) {
+		this.productId = productId;
 	}
 
 
 
-	public String getProduct_Name() {
-		return product_Name;
+	public String getProductName() {
+		return productName;
 	}
 
 
 
-	public void setProduct_Name(String product_Name) {
-		this.product_Name = product_Name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 
@@ -106,11 +106,11 @@ public class Product {
 
 
 
-	public Product(int id, String product_Name, String category, String brand, Float purchase_rate,
+	public Product(int productId, String productName, String category, String brand, Float purchase_rate,
 			Float selling_rate, int stock) {
 		super();
-		this.id = id;
-		this.product_Name = product_Name;
+		this.productId = productId;
+		this.productName = productName;
 		this.category = category;
 		this.brand = brand;
 		this.purchase_rate = purchase_rate;

@@ -15,7 +15,7 @@ public class ProductMapper {
 
 	public Product toEntity(ProductReqDto reqDto) {
 
-		return new Product(reqDto.getId(), reqDto.getProduct_Name(), reqDto.getCategory(), reqDto.getBrand(),
+		return new Product(reqDto.getProductId(), reqDto.getProductName(), reqDto.getCategory(), reqDto.getBrand(),
 				reqDto.getPurchase_rate(), reqDto.getSelling_rate(), reqDto.getStock());
 	}
 
@@ -24,8 +24,8 @@ public class ProductMapper {
 
 		for (Product product : list) {
 			ProductRespDto dto = new ProductRespDto();
-			dto.setId(product.getId());
-			dto.setProduct_Name(product.getProduct_Name());
+			dto.setProductId(product.getproductId());
+			dto.setProductName(product.getProductName());
 			dto.setCategory(product.getCategory());
 			dto.setBrand(product.getBrand());
 			dto.setPurchase_rate(product.getPurchase_rate());
@@ -39,7 +39,7 @@ public class ProductMapper {
 	}
 
 	public ProductRespDto toDto2(Product product) {
-		return new ProductRespDto(product.getId(), product.getProduct_Name(), product.getCategory(), product.getBrand(),
+		return new ProductRespDto(product.getproductId(), product.getProductName(), product.getCategory(), product.getBrand(),
 				product.getPurchase_rate(), product.getSelling_rate(), product.getStock());
 	}
 

@@ -54,11 +54,7 @@ public class ProductServiceImpl implements ProductService {
 		return null;
 	}
 
-//	@Override
-//	public String updateProduct(ProductReqDto reqDto) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+
 
 	@Override
 	public String updateProduct(ProductReqDto reqDto) {
@@ -74,8 +70,5 @@ public class ProductServiceImpl implements ProductService {
 
 		return null;
 	}
-	
-	
-
 
 }
