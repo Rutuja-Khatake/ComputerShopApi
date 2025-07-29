@@ -44,7 +44,7 @@ public class Vendor {
 		return vendorName;
 	}
 
-	public void setVendorName(String vendorName) {
+	public void setVendorName(@NotBlank(message = "Vendor name is required") @NotBlank(message = "Vendor name is required") String vendorName) {
 		this.vendorName = vendorName;
 	}
 
@@ -64,7 +64,7 @@ public class Vendor {
 		this.address = address;
 	}
 
-	public Vendor(Integer vendorId, @NotBlank(message = "Vendor name is required") String vendorName,
+	public Vendor(Integer vendorId, @NotBlank(message = "Vendor name is required") @NotBlank(message = "Vendor name is required") @NotBlank(message = "Vendor name is required") String vendorName,
 
 			@NotBlank(message = "Mobile number is required") @Pattern(regexp = "^[0-9]{10}$", message = "Mobile number must be exactly 10 digits") String mobileNumber,
 			@NotBlank(message = "Address is required") String address) {

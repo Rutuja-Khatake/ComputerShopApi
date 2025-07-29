@@ -28,7 +28,7 @@ public class VendorServiceImpl implements VendorService {
 		
 		Vendor vendor=vendorMapper.toEntity(dto);
 		Vendor addedVendor=	vendorRepo.save(vendor);
-		return null;
+		return "Vendor added successfully with ID: " + addedVendor.getvendorId();
 	}
 
 //	@Override
@@ -56,13 +56,28 @@ public class VendorServiceImpl implements VendorService {
 		return null;
 	}
 
-	@Override
+//	@Override
+//	public String updateVendorData(VendorReqDto reqDto) {
+//		Vendor vendor = vendorMapper.toEntity(reqDto);
+//		Vendor vendorUpdate = vendorRepo.save(vendor);
+//
+//		return null;
+//	}
+	
 	public String updateVendorData(VendorReqDto reqDto) {
-		Vendor vendor = vendorMapper.toEntity(reqDto);
-		Vendor vendorUpdate = vendorRepo.save(vendor);
-
-		return null;
+	    Optional<Vendor> optional = vendorRepo.findById(reqDto.getVendorId());
+	    if (optional.isPresent()) {
+	        Vendor existing = optional.get();
+	        existing.setVendorName(reqDto.getVendorName());
+	        existing.setAddress(reqDto.getAddress());
+	        existing.setMobileNumber(reqDto.getMobileNumber());
+	        vendorRepo.save(existing);
+	        return "Vendor updated successfully";
+	    } else {
+	        return "Vendor not found with ID: " + reqDto.getVendorId();
+	    }
 	}
+
 
 	
 
